@@ -1,0 +1,18 @@
+body{
+    background-color: rgb(59, 59, 59);
+    margin: 0;
+    padding:10px;
+    color:white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: "Segoe Script";
+}
+a{
+    transition: all 100ms;
+    color:deepskyblue;
+}
+a:hover{
+    background-color:rgb(126, 126, 126);
+    color:skyblue;
+}
