@@ -8,14 +8,17 @@
 </head>
 <body>
     <h1>vivaan-d's web design</h1>
+    <a href="#" onclick="alert"></a>
     <h3>about me</h3>
-    <p>I do programming. I play video games. I'm a teenager,<br>more like the ones who know what they're doing.<br>I'm the type of guy who protests in everything<br>one that doesn't accept any falsehoods on their name<br>I enjoy making humorous speech frequently; but am not void of truth<br><br>I'm passonate to earn money in my early teenage.</p>
+    <p>#vn</p>
     <h3>anyways, check out my example sites</h3>
-
 
     <a href="./example-grocery">example grocery store</a>
     <a href="#" onclick="λ.alert('hey', 'this is a about me page!', 4000)">example "about me" page</a>
     <a href="./example-">example </a>
     <script src="https://vivaan-d.github.io/lambda.js/1.0/lambda.js"></script>
+    <script>
+        λ.getxhr("https://genuine-pudding-427287.netlify.app/abt.txt",(e,r)=>{λ.replaceHTML("body","#vn",r)})
+    </script>
 </body>
 </html>
