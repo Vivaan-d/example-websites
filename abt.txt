@@ -1,1 +1,8 @@
-<p>hi. I'm Vivaan</p>
+<p>hi. I'm Vivaan<br>
+I do programming and stuff.<br>
+I play video games, notably Minecraft and Roblox.<br>
+I am dedicated to get employed/self-employed within my teenage in programming.<br>
+I've been programming for >4 years.<br>
+I excel in most of my subjects, most notably Mathematics & English.<br>
+I'm from India. Live in Canada, however.
+</p>
