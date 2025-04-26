@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <title>Fruits and Vegetables - Example Grocery Store</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
+        <a class="navbar-brand" href="#">example grocery store</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="fruitsandveg">Fruits and Vegetables</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="dairy">Dairy</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="misc">Others</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="checkout">Checkout</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Hello, User
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/orderhistory">Order History</a>
+                        <a class="dropdown-item" href="/tosprivacy">Terms of Service & Privacy Policy</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/grocerypro">Get GroceryPRO</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-5 bg-success text-white text-center">
+        <h1>Fruits and Vegetables</h1>
+        <p>Browse our fresh selection of fruits and vegetables below.</p>
+    </div>
+
+    <div class="container my-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Apples">
+                    <div class="card-body">
+                        <h5 class="card-title">Apples</h5>
+                        <p class="card-text">Fresh and juicy apples. $2.99 / lb</p>
+                        <a href="#" class="btn btn-primary">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Bananas">
+                    <div class="card-body">
+                        <h5 class="card-title">Bananas</h5>
+                        <p class="card-text">Sweet bananas, perfect for snacking. $1.29 / lb</p>
+                        <a href="#" class="btn btn-primary">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Carrots">
+                    <div class="card-body">
+                        <h5 class="card-title">Carrots</h5>
+                        <p class="card-text">Crunchy organic carrots. $0.99 / lb</p>
+                        <a href="#" class="btn btn-primary">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Broccoli">
+                    <div class="card-body">
+                        <h5 class="card-title">Broccoli</h5>
+                        <p class="card-text">Fresh green broccoli. $1.79 / lb</p>
+                        <a href="#" class="btn btn-primary">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1506089676908-3592f7389d4d?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Tomatoes">
+                    <div class="card-body">
+                        <h5 class="card-title">Tomatoes</h5>
+                        <p class="card-text">Ripe red tomatoes. $2.49 / lb</p>
+                        <a href="#" class="btn btn-primary">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1518976024611-4886d7a7d57b?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Spinach">
+                    <div class="card-body">
+                        <h5 class="card-title">Spinach</h5>
+                        <p class="card-text">Fresh spinach leaves. $1.99 / bunch</p>
+                        <a href="#" class="btn btn-primary">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://vivaan-d.github.io/lambda.js/1.0/lambda.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
