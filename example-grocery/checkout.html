@@ -37,8 +37,92 @@
         <h1>Checkout</h1>
         <div id="cartItems"></div>
         <div id="totalCost" class="mt-4"></div>
-        <button id="finalizePurchase" class="btn btn-success mt-3">Finalize Purchase</button>
+        <h4>Shipping Address</h4>
+
+        <form id="shippingForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" required>
+            </div>
+            <div class="mb-3">
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control" id="city" required>
+            </div>
+            <div class="mb-3">
+                <label for="zip" class="form-label">Zip Code</label>
+                <input type="text" class="form-control" id="zip" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="paymentMethod" class="form-label">Payment Method</label>
+                <select class="form-select" id="paymentMethod" required>
+                    <option value="" disabled selected>Select a payment method</option>
+                    <option value="creditCard">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bankTransfer">Bank Transfer</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="cardNumber" class="form-label">Card Number</label>
+                <input type="text" class="form-control" id="cardNumber" required>
+            </div>
+            <div class="mb-3">
+                <label for="expiryDate" class="form-label">Expiry Date</label>
+                <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+            </div>
+            <div class="mb-3">
+                <label for="cvv" class="form-label">CVV</label>
+                <input type="text" class="form-control" id="cvv" required>
+            </div>
+            <div class="mb-3">
+                <label for="billingAddress" class="form-label">Billing Address</label>
+                <input type="text" class="form-control" id="billingAddress" required>
+            </div>
+        <button id="finalizePurchase" class="btn btn-success mt-3">Checkout</button>
     </div>
+
+    <div id="fake-payment-area" class="my-4">
+        <button class="btn btn-primary" onclick="showFakePaymentModal()">Proceed to Payment</button>
+    </div>
+    <!-- Modal container (hidden by default) -->
+    <div id="fake-payment-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+        <div style="background:white; border-radius:12px; max-width:400px; margin:auto; padding:32px; box-shadow:0 0 20px #000;">
+            <h3>Fake Payment</h3>
+            <p>Card: <b>**** **** **** 4242</b></p>
+            <p>Name: <b>John Doe</b></p>
+            <p>Amount: <span id="modal-total"></span></p>
+            <button class="btn btn-success" onclick="payNow()">Pay Now</button>
+            <button class="btn btn-secondary" onclick="closeFakePaymentModal()" style="margin-left:10px;">Cancel</button>
+        </div>
+    </div>
+    <script>
+function showFakePaymentModal() {
+    // Get total from the page
+    let total = λ("#totalCost").innerText || "";
+    λ.sethtml("#modal-total", total.replace("Total Cost: ", ""));
+    λ("#fake-payment-modal").style.display = "flex";
+}
+function closeFakePaymentModal() {
+    λ("#fake-payment-modal").style.display = "none";
+}
+function payNow() {
+    λ.alert("Payment Success", "Thank you for your fake purchase!", 3000);
+    closeFakePaymentModal();
+    localStorage.removeItem('cart');
+    displayCart();
+}
+    </script>
 
     <script>
         function displayCart() {
