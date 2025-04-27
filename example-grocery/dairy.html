@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <title>Dairy Products - Example Grocery Store</title>
+</head>
+<body>
+    <script>
+        function additem(item, farm) {
+            const itemCosts = {
+                milk: 3.49,
+                cheese: 4.99,
+                yogurt: 2.99,
+                butter: 3.29,
+                cream: 2.49
+            };
+            var cart = JSON.parse(localStorage.getItem('cart')) || {};
+            if (cart[item]) {
+                cart[item].quantity += 1;
+            } else {
+                cart[item] = { quantity: 1, farm: farm, cost: itemCosts[item] || 0 };
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert("Added " + item + " to cart! ($" + (itemCosts[item] || "N/A") + " each)");
+        }
+        function checkout() {
+            var cart = JSON.parse(localStorage.getItem('cart'));
+            if (cart) {
+                var total = 0;
+                var items = Object.keys(cart).map(function(key) {
+                    var itemTotal = (cart[key].cost || 0) * cart[key].quantity;
+                    total += itemTotal;
+                    return key + ": " + cart[key].quantity + " from " + cart[key].farm + " ($" + (cart[key].cost || "N/A") + " each)";
+                }).join(", ");
+                alert("Your cart contains: " + items + ".\nTotal: $" + total.toFixed(2));
+            } else {
+                alert("Your cart is empty.");
+            }
+        }
+    </script>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
+        <a class="navbar-brand" href="#">example grocery store</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="fruitsandveg.html">Fruits and Vegetables</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dairy.html">Dairy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="misc.html">Others</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="checkout.html">Checkout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-5 bg-info text-white text-center">
+        <h1>Dairy Products</h1>
+        <p>Explore our selection of fresh dairy products below.</p>
+    </div>
+
+    <div class="container my-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://example.com/milk.png" class="card-img-top" alt="Milk">
+                    <div class="card-body">
+                        <h5 class="card-title">Milk</h5>
+                        <p class="card-text">Fresh whole milk for $3.49 / gallon</p>
+                        <a onclick="additem('milk','localfarm')" class="btn btn-primary">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://example.com/cheese.png" class="card-img-top" alt="Cheese">
+                    <div class="card-body">
+                        <h5 class="card-title">Cheese</h5>
+                        <p class="card-text">Aged cheddar cheese for $4.99 / lb</p>
+                        <a onclick="additem('cheese','localfarm')" class="btn btn-primary">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://example.com/yogurt.png" class="card-img-top" alt="Yogurt">
+                    <div class="card-body">
+                        <h5 class="card-title">Yogurt</h5>
+                        <p class="card-text">Creamy yogurt for $2.99 / cup</p>
+                        <a onclick="additem('yogurt','localfarm')" class="btn btn-primary">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://example.com/butter.png" class="card-img-top" alt="Butter">
+                    <div class="card-body">
+                        <h5 class="card-title">Butter</h5>
+                        <p class="card-text">Unsalted butter for $3.29 / lb</p>
+                        <a onclick="additem('butter','localfarm')" class="btn btn-primary">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://example.com/cream.png" class="card-img-top" alt="Cream">
+                    <div class="card-body">
+                        <h5 class="card-title">Cream</h5>
+                        <p class="card-text">Heavy cream for $2.49 / pint</p>
+                        <a onclick="additem('cream','localfarm')" class="btn btn-primary">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
