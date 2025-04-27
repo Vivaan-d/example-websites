@@ -9,6 +9,41 @@
     <title>Fruits and Vegetables - Example Grocery Store</title>
 </head>
 <body>
+    <script>
+        function additem(item, farm) {
+            // Define costs for each item
+            const itemCosts = {
+            apples: 2.99,
+            bananas: 1.29,
+            carrots: 0.49,
+            broccoli: 1.79,
+            tomatos: 2.49,
+            spinach: 1.99
+            };
+            var cart = JSON.parse(localStorage.getItem('cart')) || {};
+            if (cart[item]) {
+            cart[item].quantity += 1;
+            } else {
+            cart[item] = { quantity: 1, farm: farm, cost: itemCosts[item] || 0 };
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert("Added " + item + " to cart! ($" + (itemCosts[item] || "N/A") + " each)");
+        }
+        function checkout() {
+            var cart = JSON.parse(localStorage.getItem('cart'));
+            if (cart) {
+            var total = 0;
+            var items = Object.keys(cart).map(function(key) {
+                var itemTotal = (cart[key].cost || 0) * cart[key].quantity;
+                total += itemTotal;
+                return key + ": " + cart[key].quantity + " from " + cart[key].farm + " ($" + (cart[key].cost || "N/A") + " each)";
+            }).join(", ");
+            alert("Your cart contains: " + items + ".\nTotal: $" + total.toFixed(2));
+            } else {
+            alert("Your cart is empty.");
+            }
+        }
+    </script>
     <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
         <a class="navbar-brand" href="#">example grocery store</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,61 +98,61 @@
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
                 <div class="card h-100">
-                    <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Apples">
+                    <img src="https://th.bing.com/th/id/R.9c4d8dc9fb6e499ae567a455c6d9abcc?rik=xJzuU5VsKl%2bN8w&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2ftransparent-apple%2ftransparent-apple-21.png&ehk=0LDP56MKEPdTs%2bGgu%2fBTfq2yqFWK9CympqcCzj7GOs4%3d&risl=&pid=ImgRaw&r=0" class="card-img-top" alt="Apples">
                     <div class="card-body">
                         <h5 class="card-title">Apples</h5>
-                        <p class="card-text">Fresh and juicy apples. $2.99 / lb</p>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
+                        <p class="card-text">(EXAMPLE Farms, Product of Oresia) Apple with stem for $2.99 / lb</p>
+                        <a onclick="additem('apples','examplefarms')" class="btn btn-primary">Add to cart</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100">
-                    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Bananas">
+                    <img src="https://static.vecteezy.com/system/resources/previews/008/848/350/original/fresh-yellow-banana-fruit-free-png.png" class="card-img-top" alt="Bananas">
                     <div class="card-body">
                         <h5 class="card-title">Bananas</h5>
-                        <p class="card-text">Sweet bananas, perfect for snacking. $1.29 / lb</p>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
+                        <p class="card-text">(Brad's Farm, Product of Sameonia) Bananas for $1.29 / lb</p>
+                        <a onclick="additem('bananas','bradsfarm')" class="btn btn-primary">Add to cart</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100">
-                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Carrots">
+                    <img src="https://th.bing.com/th/id/R.87c21222875469046d481534e8a92f3f?rik=1eKEY%2bLiMVpikg&riu=http%3a%2f%2fwww.freepngimg.com%2fdownload%2fcarrot%2f4-2-carrot-png.png&ehk=fmuxovmcoHNLVyzeqXT41lSZ3vUwthhdSHeAOZaqO00%3d&risl=&pid=ImgRaw&r=0" class="card-img-top" alt="Carrots">
                     <div class="card-body">
                         <h5 class="card-title">Carrots</h5>
-                        <p class="card-text">Crunchy organic carrots. $0.99 / lb</p>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
+                        <p class="card-text">(EXAMPLE Farms, Product of Oresia) Carrots for <s>$0.99</s><b style="color:red;text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;">ONLY $0.49! LIMITED TIME 50% OFF </b> / lb</p>
+                        <a onclick="additem('carrots','examplefarms')" class="btn btn-primary">Add to cart</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100">
-                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Broccoli">
+                    <img src="https://www.freepngimg.com/thumb/broccoli/7-broccoli-png-image.png" class="card-img-top" alt="Broccoli">
                     <div class="card-body">
                         <h5 class="card-title">Broccoli</h5>
-                        <p class="card-text">Fresh green broccoli. $1.79 / lb</p>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
+                        <p class="card-text">(EXAMPLE Farms, Product of Oresia) Organic green broccoli. $1.79 / lb</p>
+                        <a onclick="additem('broccoli','examplefarms')" class="btn btn-primary">Add to cart</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100">
-                    <img src="https://images.unsplash.com/photo-1506089676908-3592f7389d4d?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Tomatoes">
+                    <img src="https://pngimg.com/uploads/tomato/tomato_PNG12533.png" class="card-img-top" alt="Tomatoes">
                     <div class="card-body">
                         <h5 class="card-title">Tomatoes</h5>
-                        <p class="card-text">Ripe red tomatoes. $2.49 / lb</p>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
+                        <p class="card-text">(FRAM'S AGRICULTURE, Product of Oresia). $2.49 / lb</p>
+                        <a onclick="additem('tomatos','framsagriculture')" class="btn btn-primary">Add to cart</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100">
-                    <img src="https://images.unsplash.com/photo-1518976024611-4886d7a7d57b?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Spinach">
+                    <img src="https://th.bing.com/th/id/OIP.Ymyqw0FJx-setStmmn9UxQHaFm?rs=1&pid=ImgDetMain" class="card-img-top" alt="Spinach">
                     <div class="card-body">
                         <h5 class="card-title">Spinach</h5>
-                        <p class="card-text">Fresh spinach leaves. $1.99 / bunch</p>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
+                        <p class="card-text">(Grand Kolertia Farms, Product of Kolertia). $1.99 / bunch</p>
+                        <a onclick="additem('spinach','grandkolertia')" class="btn btn-primary">Add to cart</a>
                     </div>
                 </div>
             </div>
