@@ -117,7 +117,7 @@ function closeFakePaymentModal() {
     λ("#fake-payment-modal").style.display = "none";
 }
 function payNow() {
-    λ.alert("Payment Success", "Thank you for your fake purchase!", 3000);
+    λ.alert("Payment Success", "Thank you for your purchase!", 3000);
     closeFakePaymentModal();
     localStorage.removeItem('cart');
     displayCart();
